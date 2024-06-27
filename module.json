@@ -7,5 +7,6 @@
     "verified": "12"
   },
   "url": "https://github.com/MarcinWojcik-AGH/goth-girl-pipeline",
-  "manifest": "https://raw.githubusercontent.com/MarcinWojcik-AGH/goth-girl-pipeline/main/module.json"
+  "manifest": "https://raw.githubusercontent.com/MarcinWojcik-AGH/goth-girl-pipeline/main/module.json",
+  "download": "https://github.com/MarcinWojcik-AGH/goth-girl-pipeline/releases/download/v.01/goth-girl-pipeline.zip"
 }
