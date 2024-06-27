@@ -5,5 +5,7 @@
   "compatibility": {
     "minimum": "12",
     "verified": "12"
-  }
+  },
+  "url": "https://github.com/MarcinWojcik-AGH/goth-girl-pipeline",
+  "manifest": "https://github.com/MarcinWojcik-AGH/goth-girl-pipeline/blob/main/module.json"
 }
