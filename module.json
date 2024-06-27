@@ -2,16 +2,5 @@
   "id": "goth-girl-pipeline",
   "title": "Goth Girl Pipeline",
   "description": "Dodaje fajne rzeczy do zarządzania kolonia.",
-  "authors": [
-      {
-          "name": "Kamil"
-      },
-      {
-          "name": "Marcin"
-      }
-  ],
-  "version": "1.0.0",
-  "compatibility": {
-      "minimum": "12"
-  }
+  "version": "1.0.0"
 }
