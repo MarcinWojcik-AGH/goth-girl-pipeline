@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 console.log("Resource Tracker module script loaded");
 
 class ResourceTracker extends FormApplication {
@@ -17,11 +18,28 @@ class ResourceTracker extends FormApplication {
       width: 400,
       height: "auto",
       closeOnSubmit: false,  // Do not close on submit
+=======
+// scripts/resource-tracker.js
+class ResourceTracker extends FormApplication {
+  constructor(object, options) {
+    super(object, options);
+  }
+
+  static get defaultOptions() {
+    return mergeObject(super.defaultOptions, {
+      id: "resource-tracker",
+      title: "Resource Tracker",
+      template: "modules/resource-tracker/templates/resource-tracker.html",
+      width: 400,
+      height: "auto",
+      closeOnSubmit: true,
+>>>>>>> bfa505894eb5248fe166969c19dd8eb8943017b2
       resizable: false
     });
   }
 
   getData() {
+<<<<<<< HEAD
     console.log("ResourceTracker getData called");
     const resources = game.settings.get("goth-girl-pipeline", "resources");
     return {
@@ -32,10 +50,20 @@ class ResourceTracker extends FormApplication {
       skory_i_futra: resources.skory_i_futra || "umiarkowanie",
       sila_robocza: resources.sila_robocza || "umiarkowanie",
       isGM: game.user.isGM
+=======
+    return {
+      drewno: this.object.drewno || "umiarkowanie",
+      kamienie: this.object.kamienie || "umiarkowanie",
+      metale: this.object.metale || "umiarkowanie",
+      zywnosc: this.object.zywnosc || "umiarkowanie",
+      skory_i_futra: this.object.skory_i_futra || "umiarkowanie",
+      sila_robocza: this.object.sila_robocza || "umiarkowanie"
+>>>>>>> bfa505894eb5248fe166969c19dd8eb8943017b2
     };
   }
 
   activateListeners(html) {
+<<<<<<< HEAD
     console.log("ResourceTracker activateListeners called");
     super.activateListeners(html);
     if (game.user.isGM) {
@@ -85,21 +113,40 @@ class ResourceTracker extends FormApplication {
       clearInterval(this.interval);
     }
     return super.close();
+=======
+    super.activateListeners(html);
+  }
+
+  async _updateObject(event, formData) {
+    console.log(formData);
+    await game.settings.set("resource-tracker", "resources", formData);
+>>>>>>> bfa505894eb5248fe166969c19dd8eb8943017b2
   }
 }
 
 Hooks.once('init', async function() {
+<<<<<<< HEAD
   console.log("Resource Tracker module init hook called");
   game.settings.registerMenu("goth-girl-pipeline", "resourceTrackerMenu", {
+=======
+  game.settings.registerMenu("resource-tracker", "resourceTrackerMenu", {
+>>>>>>> bfa505894eb5248fe166969c19dd8eb8943017b2
     name: "Resource Tracker",
     label: "Open Resource Tracker",
     hint: "Open the resource tracker to manage your resources.",
     icon: "fas fa-boxes",
     type: ResourceTracker,
+<<<<<<< HEAD
     restricted: true
   });
 
   game.settings.register("goth-girl-pipeline", "resources", {
+=======
+    restricted: false
+  });
+
+  game.settings.register("resource-tracker", "resources", {
+>>>>>>> bfa505894eb5248fe166969c19dd8eb8943017b2
     name: "Resources",
     scope: "world",
     config: false,
@@ -114,6 +161,7 @@ Hooks.once('init', async function() {
     }
   });
 
+<<<<<<< HEAD
   console.log("Goth Girl Pipeline module loaded.");
 });
 
@@ -154,3 +202,19 @@ Hooks.once('ready', async function() {
     }
   });
 });
+=======
+  console.log("Resource Tracker module loaded.");
+});
+
+Hooks.once('ready', async function() {
+  const resources = game.settings.get("resource-tracker", "resources");
+  new ResourceTracker(resources, {}).render(true);
+
+  // Listen for changes in the settings
+  Hooks.on("updateSetting", (setting) => {
+    if (setting.key === "resource-tracker.resources") {
+      console.log("Resources changed: ", setting.value);
+    }
+  });
+});
+>>>>>>> bfa505894eb5248fe166969c19dd8eb8943017b2
