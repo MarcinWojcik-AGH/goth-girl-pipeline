@@ -59,10 +59,6 @@ class ResourceTracker extends FormApplication {
     }
   }
 
-  async _updateObject(event, formData) {
-    // This method is no longer used
-  }
-
   updatePlayerView(html) {
     const resources = game.settings.get("goth-girl-pipeline", "resources");
     for (const [key, value] of Object.entries(resources)) {
